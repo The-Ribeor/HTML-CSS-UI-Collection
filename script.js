@@ -8,6 +8,7 @@ const data = {
 const grid = document.getElementById('components-grid');
 const title = document.getElementById('page-title');
 const navButtons = document.querySelectorAll('[data-category]');
+const scrollToTopBtn = document.getElementById('scroll-to-top');
 
 navButtons.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -28,7 +29,6 @@ function render(category) {
     const card = document.createElement('div');
     card.className = 'component-card';
 
-    // Make the whole card clickable
     card.addEventListener('click', () => {
       window.open(url, '_blank');
     });
@@ -51,3 +51,19 @@ function render(category) {
 function capitalize(text) {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
+
+// Scroll to Top functionality
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 400) {
+    scrollToTopBtn.classList.add('visible');
+  } else {
+    scrollToTopBtn.classList.remove('visible');
+  }
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});

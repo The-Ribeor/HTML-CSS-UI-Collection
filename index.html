@@ -1,73 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>The Ribeor — UI Library</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Ribeor — UI Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Background -->
+    <div class="bg-gradient"></div>
+    <div class="bg-noise"></div>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+    <!-- Social Links Fixed -->
+    <div class="social-links-fixed">
+      <a
+        href="https://github.com/The-Ribeor"
+        target="_blank"
+        class="social-link"
+        title="GitHub"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+          ></path>
+        </svg>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/diegoberrio1601/"
+        target="_blank"
+        class="social-link"
+        title="LinkedIn"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+          ></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </a>
+      <a
+        href="https://www.instagram.com/theribeor/"
+        target="_blank"
+        class="social-link"
+        title="Instagram"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+    </div>
 
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-<body>
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M12 19V5M5 12l7-7 7 7" />
+      </svg>
+    </button>
 
-  <!-- Background -->
-  <div class="bg-gradient"></div>
-  <div class="bg-noise"></div>
-
-  <!-- Hero -->
-  <header class="hero">
-    <span class="badge">The Ribeor / UI Library</span>
-    <h1>HTML & CSS Components</h1>
-    <p>
-      A visual catalog of reusable, responsive UI components.
-      Built with precision, motion, and scalability in mind.
-    </p>
-
-    <!-- Repo link -->
-    <a
-      href="https://github.com/The-Ribeor/HTML-CSS-UI-Collection"
-      target="_blank"
-      class="repo-link"
-    >
-      View on GitHub →
-    </a>
-  </header>
-
-  <!-- Layout -->
-  <div class="layout">
-
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <span class="sidebar-title">Categories</span>
-      <nav>
-        <button data-category="cards">Cards</button>
-        <button data-category="footers">Footers</button>
-        <button data-category="navbars">Navbars</button>
-        <button data-category="buttons">Buttons</button>
-      </nav>
-    </aside>
-
-    <!-- Content -->
-    <main class="content">
-      <header class="content-header">
-        <h2 id="page-title">Select a category</h2>
-        <p class="content-description">
-          Each component is isolated, responsive and production-ready.
-        </p>
-      </header>
-
-      <section id="components-grid" class="grid"></section>
-    </main>
-
-  </div>
-
-  <script src="./script.js"></script>
-</body>
+    <!-- Hero -->
+    <header class="hero">
+      <span class="badge">The Ribeor / UI Library</span>
+      <h1>HTML & CSS Components</h1>
+      <p>
+        A visual catalog of reusable, responsive UI components. Built with
+        precision, motion, and scalability in mind.
+      </p>
+      <!-- Repo link -->
+      <a
+        href="https://github.com/The-Ribeor/HTML-CSS-UI-Collection"
+        target="_blank"
+        class="repo-link"
+      >
+        View on GitHub →
+      </a>
+    </header>
+    <!-- Layout -->
+    <div class="layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <span class="sidebar-title">Categories</span>
+        <nav>
+          <button data-category="cards">Cards</button>
+          <button data-category="footers">Footers</button>
+          <button data-category="navbars">Navbars</button>
+          <button data-category="buttons">Buttons</button>
+        </nav>
+      </aside>
+      <!-- Content -->
+      <main class="content">
+        <header class="content-header">
+          <h2 id="page-title">Select a category</h2>
+          <p class="content-description">
+            Each component is isolated, responsive and production-ready.
+          </p>
+        </header>
+        <section id="components-grid" class="grid"></section>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
 </html>
