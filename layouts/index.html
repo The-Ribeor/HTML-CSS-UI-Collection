@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Ribeor — UI Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="bg-gradient"></div>
+  <div class="bg-noise"></div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <span class="badge">The Ribeor / UI Library</span>
+    <h1>HTML & CSS Components</h1>
+    <p>
+      A visual catalog of reusable, responsive UI components.
+      Built with precision, motion, and scalability in mind.
+    </p>
+
+    <!-- Repo link -->
+    <a
+      href="https://github.com/The-Ribeor/HTML-CSS-UI-Collection"
+      target="_blank"
+      class="repo-link"
+    >
+      View on GitHub →
+    </a>
+  </header>
+
+  <!-- Layout -->
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <span class="sidebar-title">Categories</span>
+      <nav>
+        <button data-category="cards">Cards</button>
+        <button data-category="footers">Footers</button>
+        <button data-category="navbars">Navbars</button>
+        <button data-category="buttons">Buttons</button>
+      </nav>
+    </aside>
+
+    <!-- Content -->
+    <main class="content">
+      <header class="content-header">
+        <h2 id="page-title">Select a category</h2>
+        <p class="content-description">
+          Each component is isolated, responsive and production-ready.
+        </p>
+      </header>
+
+      <section id="components-grid" class="grid"></section>
+    </main>
+
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

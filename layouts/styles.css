@@ -1,0 +1,221 @@
+/* =====================
+   Base
+===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background: #0b0d10;
+  color: #e5e7eb;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* =====================
+   Background
+===================== */
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(168,85,247,0.25), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(79,140,255,0.25), transparent 40%);
+  z-index: -2;
+}
+
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.08;
+  z-index: -1;
+}
+
+/* =====================
+   Hero
+===================== */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 96px 24px 64px;
+}
+
+.badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a855f7;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  margin: 16px 0;
+}
+
+.hero p {
+  max-width: 620px;
+  color: #b5b5b5;
+  line-height: 1.6;
+}
+
+.repo-link {
+  display: inline-block;
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.repo-link:hover {
+  text-decoration: underline;
+}
+
+/* =====================
+   Layout
+===================== */
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  padding: 0 24px 120px;
+}
+
+/* =====================
+   Sidebar
+===================== */
+.sidebar {
+  position: sticky;
+  top: 40px;
+}
+
+.sidebar-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 14px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: #c7c7c7;
+  padding: 12px 14px;
+  border-radius: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sidebar button:hover,
+.sidebar button.active {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+/* =====================
+   Content
+===================== */
+.content-header {
+  margin-bottom: 32px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 32px;
+}
+
+/* =====================
+   Component Card
+===================== */
+.component-card {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border-radius: 22px;
+  padding: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.component-card:hover {
+  transform: translateY(-6px);
+}
+
+.component-card h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #c084fc;
+  margin-bottom: 12px;
+}
+
+.component-card iframe {
+  width: 100%;
+  height: 280px;
+  border: none;
+  border-radius: 16px;
+  background: #000;
+  pointer-events: none;
+}
+
+.component-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.component-meta a {
+  font-size: 0.8rem;
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+/* =====================
+   Responsive
+===================== */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 64px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .component-card iframe {
+    height: 220px;
+  }
+}

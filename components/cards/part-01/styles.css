@@ -1,0 +1,243 @@
+/* =====================
+   Variables
+===================== */
+:root {
+  --bg-main: #0b0d10;
+  --bg-card: rgba(255,255,255,0.04);
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --purple: #a855f7;
+  --blue: #4f8cff;
+
+  --glow-purple: rgba(168,85,247,0.35);
+  --glow-blue: rgba(79,140,255,0.25);
+
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+}
+
+/* =====================
+   Reset
+===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* =====================
+   Background
+===================== */
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(168,85,247,0.22), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(79,140,255,0.22), transparent 40%);
+  z-index: -2;
+}
+
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.08;
+  z-index: -1;
+}
+
+/* =====================
+   Layout
+===================== */
+.container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  gap: 28px;
+  padding: 64px 24px;
+}
+
+/* =====================
+   Card (Dark + Glow)
+===================== */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.45),
+    0 0 60px var(--glow-purple),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--glow-purple), var(--glow-blue));
+  filter: blur(32px);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* =====================
+   Banner
+===================== */
+.banner-wrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.banner {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  background-image: url("https://img.freepik.com/free-photo/abstract-colorful-paper-cut-waves-background_474888-7152.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* =====================
+   Content
+===================== */
+.content {
+  padding: 6px 10px 12px;
+}
+
+.badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+
+.content h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+
+/* =====================
+   Steps
+===================== */
+.steps {
+  list-style: none;
+  margin-bottom: 26px;
+}
+
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+}
+
+.icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(168,85,247,0.18);
+  display: grid;
+  place-items: center;
+}
+
+/* =====================
+   Invite
+===================== */
+.label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.invite {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+  padding: 6px 6px 6px 16px;
+}
+
+.link {
+  flex: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.invite button {
+  border: none;
+  background: linear-gradient(135deg, var(--purple), #5b21b6);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.invite button:hover {
+  box-shadow: 0 8px 20px rgba(168,85,247,0.45);
+}
+
+/* =====================
+   Repo Link
+===================== */
+.repo-link {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.repo-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* =====================
+   Responsive
+===================== */
+@media (max-width: 480px) {
+  .card {
+    border-radius: 24px;
+  }
+
+  .content h1 {
+    font-size: 1.55rem;
+  }
+}
