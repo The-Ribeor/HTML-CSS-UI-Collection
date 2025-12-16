@@ -99,7 +99,7 @@ body {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 /* Glow halo */
-.component::before {
+/* .component::before {
   content: "";
   position: absolute;
   inset: -2px;
@@ -108,7 +108,7 @@ body {
   filter: blur(32px);
   opacity: 0.35;
   z-index: -1;
-}
+} */
 /* =====================
    Optional content styles
 ===================== */

@@ -4,25 +4,188 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Part-01</title>
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <!-- Background layers -->
     <div class="bg-gradient"></div>
-    <div class="bg-noise"></div>
 
-    <!-- Page container -->
-    <main class="container">
-      <h1>Comming soon.</h1>
-    </main>
+    <!-- Navbar -->
+    <div class="navbar-wrapper">
+      <nav class="navbar">
+        <div class="navbar-content">
+          <!-- Logo -->
+          <a href="#" class="logo">
+            <span class="logo-icon">⚡</span>
+            <span>The Ribeor</span>
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+
+          <!-- Navigation Menu -->
+          <ul class="nav-menu" id="navMenu">
+            <li class="nav-item">
+              <a href="#" class="nav-link">About us</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link" data-dropdown="usecases">
+                Use cases <span class="arrow">▾</span>
+              </a>
+              <div class="dropdown-menu" id="dropdown-usecases">
+                <div class="dropdown-grid">
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">😎</div>
+                    <h3 class="dropdown-card-title">Team</h3>
+                    <p class="dropdown-card-desc">
+                      Porta mus rhoncus risus morbi tristique massa quam.
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">🔥</div>
+                    <h3 class="dropdown-card-title">Use cases</h3>
+                    <p class="dropdown-card-desc">
+                      Convallis sapien, sed et diam. Consequat velit tincidunt.
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">🤘</div>
+                    <h3 class="dropdown-card-title">Features</h3>
+                    <p class="dropdown-card-desc">
+                      Tellus tempor amet sed tellus pellentesque velit
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">📘</div>
+                    <h3 class="dropdown-card-title">Blog</h3>
+                    <p class="dropdown-card-desc">
+                      Nam dui amet mi justo pulvinar nibh eget vel.
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">💼</div>
+                    <h3 class="dropdown-card-title">Enterprise</h3>
+                    <p class="dropdown-card-desc">
+                      Scalable solutions for large organizations.
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">🚀</div>
+                    <h3 class="dropdown-card-title">Startups</h3>
+                    <p class="dropdown-card-desc">
+                      Fast-track your product development cycle.
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link" data-dropdown="resources">
+                Resources <span class="arrow">▾</span>
+              </a>
+              <div class="dropdown-menu" id="dropdown-resources">
+                <div class="dropdown-grid">
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">📚</div>
+                    <h3 class="dropdown-card-title">Documentation</h3>
+                    <p class="dropdown-card-desc">
+                      Complete guides and API references.
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">🎓</div>
+                    <h3 class="dropdown-card-title">Tutorials</h3>
+                    <p class="dropdown-card-desc">
+                      Step-by-step learning resources.
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">💡</div>
+                    <h3 class="dropdown-card-title">Best Practices</h3>
+                    <p class="dropdown-card-desc">
+                      Industry standards and recommendations.
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">🎨</div>
+                    <h3 class="dropdown-card-title">Design System</h3>
+                    <p class="dropdown-card-desc">
+                      UI components and design guidelines.
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">🔧</div>
+                    <h3 class="dropdown-card-title">Tools</h3>
+                    <p class="dropdown-card-desc">
+                      Helpful utilities and integrations.
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                  <div class="dropdown-card">
+                    <div class="dropdown-card-icon">👥</div>
+                    <h3 class="dropdown-card-title">Community</h3>
+                    <p class="dropdown-card-desc">
+                      Join our developer community forum.
+                    </p>
+                    <a href="#" class="dropdown-card-link">→</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">Pricing</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">Contacts</a>
+            </li>
+          </ul>
+
+          <!-- CTA Button -->
+          <a href="#" class="cta-button">Try for free →</a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Demo Content -->
+    <div class="demo-content">
+      <h2>TheRibeor UI Navigation</h2>
+      <p>
+        Un sistema de navegación moderno y responsive con menús desplegables
+        animados. Diseñado con las mejores prácticas de UX y totalmente
+        adaptable a cualquier dispositivo.
+      </p>
+    </div>
+    <!-- Repo Button (OUTSIDE card) -->
+    <center>
+      <a
+        class="repo-link"
+        href="https://github.com/The-Ribeor/HTML-CSS-UI-Collection"
+        target="_blank"
+      >
+        View repository →
+      </a>
+    </center>
+    <script src="script.js"></script>
   </body>
 </html>
