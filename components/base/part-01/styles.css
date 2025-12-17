@@ -1,0 +1,135 @@
+/* =====================
+   Variables
+===================== */
+:root {
+  --bg-main: #0b0d10;
+  --bg-card: rgba(255, 255, 255, 0.04);
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --purple: #a855f7;
+  --blue: #4f8cff;
+
+  --glow-purple: rgba(168, 85, 247, 0.35);
+  --glow-blue: rgba(79, 140, 255, 0.25);
+
+  --radius-lg: 28px;
+  --radius-md: 20px;
+}
+
+/* =====================
+   Reset
+===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =====================
+   Background
+===================== */
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(168,85,247,0.22), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(79,140,255,0.22), transparent 40%);
+  z-index: -2;
+}
+
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.08;
+  z-index: -1;
+}
+
+/* =====================
+   Layout
+===================== */
+.container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 64px 24px;
+}
+
+/* Glow halo */
+.component::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    var(--glow-purple),
+    var(--glow-blue)
+  );
+  filter: blur(32px);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+
+/* =====================
+   Optional content styles
+===================== */
+.component h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c084fc;
+  margin-bottom: 14px;
+}
+
+/* =====================
+   No Glow Modifier
+===================== */
+.no-glow {
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+}
+
+.no-glow::before {
+  display: none;
+}
+
+/* =====================
+   Responsive
+===================== */
+@media (max-width: 480px) {
+  .component {
+    padding: 20px;
+    border-radius: 22px;
+  }
+}
+
+/* =====================
+   Repo Link
+===================== */
+.repo-link {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.repo-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}

@@ -1,145 +1,175 @@
-/* =====================
-   Variables
-===================== */
-:root {
-  --bg-main: #0b0d10;
-  --bg-card: rgba(255, 255, 255, 0.04);
+   :root {
+      --bg-main: #0b0d10;
+      --bg-card: rgba(255, 255, 255, 0.04);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --purple: #a855f7;
+      --blue: #4f8cff;
+      --glow-purple: rgba(168, 85, 247, 0.35);
+      --glow-blue: rgba(79, 140, 255, 0.25);
+      --radius-lg: 28px;
+      --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
 
-  --text-main: #e5e7eb;
-  --text-muted: #9ca3af;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  --purple: #a855f7;
-  --blue: #4f8cff;
+    body {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
 
-  --glow-purple: rgba(168, 85, 247, 0.35);
-  --glow-blue: rgba(79, 140, 255, 0.25);
+    .component {
+      position: relative;
+      background: var(--bg-card);
+      backdrop-filter: blur(24px);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      width: 90%;
+      max-width: 860px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.08);
+    }
 
-  --radius-lg: 28px;
-  --radius-md: 20px;
-}
+    .component::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, var(--glow-purple), var(--glow-blue));
+      filter: blur(40px);
+      opacity: .25;
+      z-index: -1;
+    }
 
-/* =====================
-   Reset
-===================== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
 
-html {
-  scroll-behavior: smooth;
-}
+    .subtitle {
+      color: var(--text-muted);
+      margin-bottom: 42px;
+      font-size: 1.05rem;
+    }
 
-body {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  background: var(--bg-main);
-  color: var(--text-main);
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
-}
+    .section {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
 
-/* =====================
-   Background
-===================== */
-.bg-gradient {
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(168,85,247,0.22), transparent 40%),
-    radial-gradient(circle at 80% 60%, rgba(79,140,255,0.22), transparent 40%);
-  z-index: -2;
-}
+    .section:first-of-type { border-top: none; }
 
-.bg-noise {
-  position: fixed;
-  inset: 0;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.08;
-  z-index: -1;
-}
+    .section p {
+      color: var(--text-muted);
+      max-width: 340px;
+      line-height: 1.6;
+    }
 
-/* =====================
-   Layout
-===================== */
-.container {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 64px 24px;
-}
+    .buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
-/* =====================
-   Component Card
-===================== */
-.component {
-  position: relative;
-  width: 100%;
-  max-width: 480px;
+    /* ===== BASE BUTTON ===== */
+    button, .link-btn {
+      font-family: inherit;
+      border-radius: 999px;
+      padding: 14px 26px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition:
+        transform .4s var(--ease-elastic),
+        box-shadow .3s ease,
+        background .3s ease,
+        color .3s ease;
+    }
 
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: 24px;
+    /* ===== PRIMARY (FILLED) ===== */
+    .btn-filled {
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(168,85,247,.35);
+    }
 
-  backdrop-filter: blur(14px);
+    .btn-filled::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+      transform: skewX(-25deg);
+      transition: left .8s ease;
+    }
 
-  box-shadow:
-    0 30px 60px rgba(0,0,0,0.45),
-    0 0 60px var(--glow-purple),
-    inset 0 1px 0 rgba(255,255,255,0.06);
+    .btn-filled:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 18px 42px rgba(168,85,247,.5);
+    }
 
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
+    .btn-filled:hover::after { left: 160%; }
 
-/* Glow halo */
-.component::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    var(--glow-purple),
-    var(--glow-blue)
-  );
-  filter: blur(32px);
-  opacity: 0.35;
-  z-index: -1;
-}
+    /* ===== SECONDARY (OUTLINE) ===== */
+    .btn-outline {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.18);
+      color: var(--text-main);
+      backdrop-filter: blur(6px);
+    }
 
+    .btn-outline:hover {
+      transform: scale(1.05);
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 0 24px rgba(255,255,255,.06);
+    }
 
-/* =====================
-   Optional content styles
-===================== */
-.component h3 {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #c084fc;
-  margin-bottom: 14px;
-}
+    /* ===== TERTIARY (LINK) ===== */
+    .link-btn {
+      background: transparent;
+      padding: 8px 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-/* =====================
-   No Glow Modifier
-===================== */
-.no-glow {
-  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
-}
+    .link-btn::after {
+      content: '';
+      position: absolute;
+      left: 12px;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      transition: width .45s var(--ease-elastic);
+    }
 
-.no-glow::before {
-  display: none;
-}
+    .link-btn:hover {
+      color: #fff;
+      transform: translateX(6px);
+    }
 
-/* =====================
-   Responsive
-===================== */
-@media (max-width: 480px) {
-  .component {
-    padding: 20px;
-    border-radius: 22px;
-  }
-}
+    .link-btn:hover::after {
+      width: calc(100% - 24px);
+    }
+
+    @media (max-width: 768px) {
+      .section { grid-template-columns: 1fr; text-align: center; }
+      .buttons { justify-content: center; }
+    }
+  
