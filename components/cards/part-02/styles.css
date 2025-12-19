@@ -1,0 +1,237 @@
+    :root {
+      --bg-main: #0b0d10;
+      --bg-card: rgba(255,255,255,.05);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --purple: #a855f7;
+      --blue: #4f8cff;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    /* Background */
+    .bg-gradient {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(168,85,247,.25), transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(79,140,255,.25), transparent 40%);
+      z-index: -2;
+    }
+
+    .bg-noise {
+      position: fixed;
+      inset: 0;
+      background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+      opacity: .08;
+      z-index: -1;
+    }
+
+    /* Layout */
+    .container {
+      min-height: 100vh;
+      padding: 64px 24px;
+      display: grid;
+      place-items: center;
+    }
+
+    .layout {
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Card base */
+    .card {
+      position: relative;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.06);
+      backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(168,85,247,.35), rgba(79,140,255,.25));
+      filter: blur(32px);
+      opacity: .35;
+      z-index: -1;
+    }
+
+    /* Brand row */
+    .brand {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: .85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Avatars */
+    .avatars {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatars img {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid var(--bg-main);
+      margin-left: -8px;
+    }
+
+    .avatars span {
+      font-size: .7rem;
+      margin-left: 8px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono';
+    }
+
+    /* Actions */
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .btns {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 18px;
+      border-radius: 14px;
+      font-size: .8rem;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn.outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.15);
+      color: var(--text-main);
+    }
+
+    .btn.solid {
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      color: #fff;
+    }
+
+    .btn:active {
+      transform: scale(.97);
+    }
+
+    /* Heart */
+    .heart {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,.06);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: .9rem;
+      color: #777;
+    }
+
+    .heart.active {
+      color: #f472b6;
+    }
+
+    /* Pill */
+    .pill {
+      align-self: flex-start;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      font-size: .75rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono';
+    }
+
+    /* Compact card */
+    .compact {
+      flex-direction: row;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+    }
+
+    .compact img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+    }
+
+    .arrow {
+      margin-left: auto;
+      color: var(--text-muted);
+    }
+
+    /* Meta row */
+    .meta {
+      display: flex;
+      gap: 14px;
+      font-size: .75rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  

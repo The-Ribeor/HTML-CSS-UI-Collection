@@ -1,5 +1,5 @@
 const data = {
-  cards: ['part-01'],
+  cards: ['part-01', 'part-02'],
   footers: ['part-01'],
   navbars: ['part-01'],
   buttons: ['part-01'],
