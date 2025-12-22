@@ -1,0 +1,338 @@
+/* =====================
+   Variables
+===================== */
+:root {
+  --bg-main: #0b0d10;
+  --bg-card: rgba(255, 255, 255, 0.04);
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --purple: #a855f7;
+  --blue: #4f8cff;
+
+  --glow-purple: rgba(168, 85, 247, 0.35);
+  --glow-blue: rgba(79, 140, 255, 0.25);
+
+  --radius-lg: 28px;
+  --radius-md: 20px;
+}
+
+/* =====================
+   Reset
+===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =====================
+   Background
+===================== */
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(168,85,247,0.22), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(79,140,255,0.22), transparent 40%);
+  z-index: -2;
+}
+
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.08;
+  z-index: -1;
+}
+
+/* =====================
+   Layout
+===================== */
+.container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 64px 24px;
+}
+
+/* Glow halo */
+.component::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    var(--glow-purple),
+    var(--glow-blue)
+  );
+  filter: blur(32px);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+
+/* =====================
+   Optional content styles
+===================== */
+.component h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c084fc;
+  margin-bottom: 14px;
+}
+
+/* =====================
+   No Glow Modifier
+===================== */
+.no-glow {
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+}
+
+.no-glow::before {
+  display: none;
+}
+
+
+
+/* =====================
+   Repo Link
+===================== */
+.repo-link {
+  margin-top: 50px;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.repo-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* =====================
+   Footer
+===================== */
+.footer {
+  width: 100%;
+  max-width: 1100px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* =====================
+   Newsletter
+===================== */
+.newsletter {
+  background: #1f3f3c;
+  border-radius: var(--radius-md);
+  padding: 36px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+}
+
+.newsletter-text h2 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.newsletter-text p {
+  color: var(--text-muted);
+  max-width: 420px;
+}
+
+.newsletter-form label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.input-group {
+  display: flex;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.input-group input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 14px 18px;
+  color: #fff;
+  font-family: inherit;
+  outline: none;
+}
+
+.input-group button {
+  background: #d9f99d;
+  border: none;
+  padding: 0 22px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.newsletter-form small {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.newsletter-form a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* =====================
+   Footer Bottom
+===================== */
+.footer-bottom {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 32px;
+}
+
+.brand .logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.brand p {
+  margin-top: 6px;
+  color: var(--text-muted);
+  max-width: 260px;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.footer-links h4 {
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+/* =====================
+   Responsive — Pro level
+===================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 32px;
+  }
+
+  .newsletter {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+
+  .newsletter-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .footer-bottom {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .footer {
+    padding: 24px;
+    gap: 40px;
+  }
+
+  .newsletter {
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .newsletter-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .newsletter-text p {
+    font-size: 0.9rem;
+  }
+
+  .input-group {
+    flex-direction: column;
+    background: transparent;
+    gap: 12px;
+  }
+
+  .input-group input {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+  }
+
+  .input-group button {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-links h4 {
+    font-size: 0.9rem;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+  }
+
+  .brand p {
+    max-width: none;
+  }
+}
+
+

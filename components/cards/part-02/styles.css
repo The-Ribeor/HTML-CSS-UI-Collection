@@ -235,3 +235,17 @@
       }
     }
   
+
+    /* =====================
+   Repo Link
+===================== */
+.repo-link {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.repo-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
